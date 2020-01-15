@@ -1,0 +1,136 @@
+package project.beans;
+
+import java.sql.Date;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+
+
+@Entity
+@Table(name="STUDENT_INFO")
+public class Student_Info {
+    @Id
+    @Column(length=5)
+	private String student_ID;
+    @Column(length=30)
+	private String student_Name;
+    @Column
+	private Date date_Of_Birth;
+    @Column
+	private String guardian_Type;
+    @Column(length=30)
+	private String guardian_Name;
+    @Column(length=50)
+	private String address;
+    @OneToOne(targetEntity=Country_Info.class,cascade=CascadeType.ALL)
+	 @JoinColumn(name="joincol",referencedColumnName="country_ID")
+   	private Country_Info country_Info;
+    @Column(length=10)
+	private String contact_No;
+    @Column(length=30)
+	private String mail_ID;
+	@Column
+    private String gender;
+	@OneToOne(targetEntity=Fees_Info.class,cascade=CascadeType.ALL)
+	 @JoinColumn(name="joincol",referencedColumnName="standard")
+    private Fees_Info fees_Info;
+	@Column
+	private String standard_Category;
+	@Column
+	private String transport;
+	@Column(length=7,precision=2)
+	private double net_Fees;
+	public String getStudent_ID() {
+		return student_ID;
+	}
+	public void setStudent_ID(String student_ID) {
+		this.student_ID = student_ID;
+	}
+	public String getStudent_Name() {
+		return student_Name;
+	}
+	public void setStudent_Name(String student_Name) {
+		this.student_Name = student_Name;
+	}
+	public Date getDate_Of_Birth() {
+		return date_Of_Birth;
+	}
+	public void setDate_Of_Birth(Date date_Of_Birth) {
+		this.date_Of_Birth = date_Of_Birth;
+	}
+	public String getGuardian_Type() {
+		return guardian_Type;
+	}
+	public void setGuardian_Type(String guardian_Type) {
+		this.guardian_Type = guardian_Type;
+	}
+	public String getGuardian_Name() {
+		return guardian_Name;
+	}
+	public void setGuardian_Name(String guardian_Name) {
+		this.guardian_Name = guardian_Name;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public Country_Info getCountry_Info() {
+		return country_Info;
+	}
+	public void setCountry_Info(Country_Info country_Info) {
+		this.country_Info = country_Info;
+	}
+	public String getContact_No() {
+		return contact_No;
+	}
+	public void setContact_No(String contact_No) {
+		this.contact_No = contact_No;
+	}
+	public String getMail_ID() {
+		return mail_ID;
+	}
+	public void setMail_ID(String mail_ID) {
+		this.mail_ID = mail_ID;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public Fees_Info getFees_Info() {
+		return fees_Info;
+	}
+	public void setFees_Info(Fees_Info fees_Info) {
+		this.fees_Info = fees_Info;
+	}
+	public String getStandard_Category() {
+		return standard_Category;
+	}
+	public void setStandard_Category(String standard_Category) {
+		this.standard_Category = standard_Category;
+	}
+	public String getTransport() {
+		return transport;
+	}
+	public void setTransport(String transport) {
+		this.transport = transport;
+	}
+	public double getNet_Fees() {
+		return net_Fees;
+	}
+	public void setNet_Fees(double net_Fees) {
+		this.net_Fees = net_Fees;
+	}
+	
+	
+	
+}
